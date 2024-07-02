@@ -3,10 +3,6 @@ import MyHeader from './MyHeader';
 import MyNav from './MyNav';
 import MyArticle from './Myarticcle';
 
-  
-
-  
-
 /* ES5 문법
 function MyHeader({title}){
   return (
@@ -14,7 +10,6 @@ function MyHeader({title}){
   )
 }
 */
-
 
 export default class App extends Component {
   constructor(props) {
