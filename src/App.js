@@ -1,31 +1,11 @@
 import React, { Component } from 'react';
-class MyNav extends Component{
-  render(){
-    return(
-        <nav>
-          <ul>
-            <li><a href=''>HTML</a> </li>
-            <li><a href=''>CSS</a> </li>
-            <li><a href=''>Javascript</a> </li>
-          </ul>
-        </nav>
-    )
-  }
-}
+import MyHeader from './MyHeader';
+import MyNav from './MyNav';
+import MyArticle from './Myarticcle';
 
-class Myarticcle extends Component{
-  render(){
-    return(
-        <section>
-          <article>
-            <h2>HTML</h2>
-            <p>Hypertext Markup Language</p>
-          </article>
-        </section>
-    )
-  }
-}
+  
 
+  
 
 /* ES5 문법
 function MyHeader({title}){
@@ -34,24 +14,25 @@ function MyHeader({title}){
   )
 }
 */
-class MyHeader extends Component{
-  render(){
-    return(
-        <header>
-          <h1 className="logo">{this.props.title}</h1>
-          <p>{this.props.desc}</p>
-        </header>
-    )
-  }
-}
+
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      subject: {title:'React', desc:'Single Page Application'}
+    }
+
+  }
   render() {
     return (
       <div className='App'>
-        <MyHeader title="React" desc="Single Page Application"/>
+        <MyHeader 
+          title={this.state.subject.title}
+          desc={this.state.subject.desc}
+        />
         <MyNav/>
-        <Myarticcle/>
+        <MyArticle title="HTML" desc="Hypertext Markup Language"/>
 
       </div>
     )
