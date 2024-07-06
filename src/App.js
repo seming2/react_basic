@@ -16,7 +16,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode:'read',
+      mode:'welcome',
       subject: {title:'React', desc:'Single Page Application'},
       welcome: {title:'Welcome', desc:'Welcome to React'},
       menus: [
@@ -43,28 +43,27 @@ export default class App extends Component {
 
     return (
       <div className='App'>
-        {/* <MyHeader 
+        <MyHeader 
           title={this.state.subject.title}
           desc={this.state.subject.desc}
-        /> */}
-        <header>
-            <h1 className="logo">
-              <a href="" 
-                onClick={
-                  function(e){
-                    e.preventDefault();
-                    // alert('click');
-                    // this.state.mode = 'welcome'; 
-                    this.setState({
-                      mode:'welcome'
-                    })
-                    console.log(this)
-                  }.bind(this)
-                }
-              >{this.state.subject.title}</a></h1>
-            <p>{this.state.subject.desc}</p>
-        </header>
-        <MyNav data={this.state.menus}/>
+          onChangesPage = {
+            function(){
+              this.setState({
+                mode:'welcome'
+              })
+            }.bind(this)
+          }
+        />
+        <MyNav 
+          data={this.state.menus}
+          onChangesPage = {
+            function(){
+              this.setState({
+                mode:'read'
+              })
+            }.bind(this)
+          }
+        />
         <MyArticle 
           title = {_title}
           desc = {_desc}

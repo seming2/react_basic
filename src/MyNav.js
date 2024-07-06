@@ -7,7 +7,14 @@ export default class MyNav extends Component {
         var data = this.props.data; //리팩토링
         var i =0;
         while(i<data.length){
-            lists.push(<li key={data[i].id}><a href="">{data[i].title}</a></li>)
+            lists.push(<li key={data[i].id}>
+                <a href=""
+                    onClick = {function(e){
+                        e.preventDefault();
+                        this.props.onChangesPage();    
+                    }.bind(this)
+                }
+                >{data[i].title}</a></li>)
             i++;
         }
         return(
