@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export default class MyNav extends Component {
     render(){
+        console.log('MyNav.js 실행됨');
         let lists = [];
         var data = this.props.data; //리팩토링
         var i =0;
