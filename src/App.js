@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MyHeader from './MyHeader';
 import MyNav from './MyNav';
 import MyArticle from './Myarticcle';
+import Controls from './Controls';
 
 
 /* ES5 문법
@@ -47,7 +48,7 @@ export default class App extends Component {
         if(data.id === this.state.selected_id){
           _title = data.title;
           _desc = data.desc;
-          // break;
+          break;
         }
         i++;
       }
@@ -82,7 +83,16 @@ export default class App extends Component {
           title = {_title}
           desc = {_desc}
         />
-
+        
+        <Controls
+          onChangesPage = {
+            function(_mode){
+              this.setState({
+                mode:_mode
+              })
+            }.bind(this)
+          }
+        />
       </div>
     )
   }
