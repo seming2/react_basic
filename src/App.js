@@ -52,6 +52,10 @@ export default class App extends Component {
         }
         i++;
       }
+    }else if(this.state.mode === 'create'){
+
+    }else if(this.state.mode === 'update'){
+
     }
     
 
