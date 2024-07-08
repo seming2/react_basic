@@ -7,7 +7,24 @@ export default class CreateArticle extends Component {
             <section>
                 <article>
                     <h2>Create Article</h2>
-                    
+                    <form action='/create_process' method='post' 
+                        onSubmit={function(e){
+                            e.preventDefault();
+                            // alert('전송됨')
+                            debugger;
+                            this.props.onSubmit();
+                        }.bind(this)}
+                    >
+                        <p>
+                            <input type="text" name="title" placeholder='Title'/>
+                        </p>
+                        <p>
+                            <textarea name="desc" placeholder='description'/>
+                        </p>
+                        <p>
+                            <input type='submit' value='전송'/>
+                        </p>
+                    </form>
                 </article>
             </section>
         )

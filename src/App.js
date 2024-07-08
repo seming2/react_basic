@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css'
 import MyHeader from './MyHeader';
 import MyNav from './MyNav';
 import MyArticle from './Myarticcle';
@@ -20,7 +21,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode:'welcome',
+      mode:'create',
       selected_id:'',
       subject: {title:'React', desc:'Single Page Application'},
       welcome: {title:'Welcome', desc:'Welcome to React'},
@@ -57,7 +58,12 @@ export default class App extends Component {
       }
       _article = <MyArticle title = {_title} desc = {_desc} />;
     }else if(this.state.mode === 'create'){
-      _article = <CreateArticle/>
+      _article = <CreateArticle 
+        onSubmit={function(_title,_desc){
+          
+      }.bind(this)
+    }
+      />
     }else if(this.state.mode === 'update'){
       _article = <ReadArticle/>
     } 
